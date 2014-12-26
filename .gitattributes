@@ -1,0 +1,8 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# All vim scripts use unix line endings
+*.vim text eol=lf
+
+# Set unix endlines for vimrc configuration
+vimrc text eol=lf
