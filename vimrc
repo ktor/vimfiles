@@ -1,6 +1,29 @@
 ﻿set nocompatible                " choose no compatibility with legacy vi
+filetype off                   " required!
 
-call pathogen#infect()
+set rtp+=~/vimfiles/bundle/Vundle.vim/
+let path='~/vimfiles/bundle'
+call vundle#begin(path)
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'tomtom/tcomment_vim.git'
+
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'vm'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
 
 "" Gui language
 language mes en
