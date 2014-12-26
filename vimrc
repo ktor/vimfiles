@@ -18,6 +18,29 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tomtom/tcomment_vim.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Raimondi/delimitMate'
+Plugin 'jelera/vim-javascript-syntax'
+
+Plugin 'scrooloose/syntastic'
+" This does what it says on the tin. It will check your file on open too,
+" not just on save.
+" You might not want this, so just leave it out if you don't.
+let g:syntastic_check_on_open=1
+
+Plugin 'Valloric/YouCompleteMe'
+" These are the tweaks I apply to YCM's config, you don't need them but they
+" might help.
+" YCM gives you popups and splits by default that some people might not like,
+" so these should tidy it up a bit for you.
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+Plugin 'marijnh/tern_for_vim'
+
+Plugin 'Lokaltog/vim-distinguished'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -44,8 +67,9 @@ language mes en
 set langmenu=en_US.UTF-8
 
 set showcmd
-set guifont=Inconsolata:h13
-colo jellybeans
+" set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+set guifont=Monaco:h11
+colo distinguished
 set number " show line numbers
 nnoremap Q <nop>
 set vb t_vb= " don't flash
@@ -94,7 +118,45 @@ cmap <C-k> <Up>
 " gvim map F11 to full screen toggle
 " map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-
+" if has('gui_running') && has('libcall')
+"     let g:MyVimLib = "gvimfullscreen.dll"
+"     function ToggleFullScreen()
+"         call libcallnr(g:MyVimLib, "ToggleFullScreen", 0)
+"     endfunction
+"
+"     "Alt+Enter
+"     map <A-Enter> <Esc>:call ToggleFullScreen()<CR>
+"
+"     let g:VimAlpha = 240
+"     function! SetAlpha(alpha)
+"         let g:VimAlpha = g:VimAlpha + a:alpha
+"         if g:VimAlpha < 180
+"             let g:VimAlpha = 180
+"         endif
+"         if g:VimAlpha > 255
+"             let g:VimAlpha = 255
+"         endif
+"         call libcall(g:MyVimLib, 'SetAlpha', g:VimAlpha)
+"     endfunction
+"
+"     "Shift+Y
+"     nmap <s-y> <Esc>:call SetAlpha(3)<CR>
+"     "Shift+T
+"     nmap <s-t> <Esc>:call SetAlpha(-3)<CR>
+"
+"     let g:VimTopMost = 0
+"     function! SwitchVimTopMostMode()
+"         if g:VimTopMost == 0
+"             let g:VimTopMost = 1
+"         else
+"             let g:VimTopMost = 0
+"         endif
+"         call libcall(g:MyVimLib, 'EnableTopMost', g:VimTopMost)
+"     endfunction
+"
+"     "Shift+R
+"     nmap <s-r> <Esc>:call SwitchVimTopMostMode()<CR>
+" endif
 
 set splitright
 set splitbelow
@@ -123,11 +185,11 @@ set fileencoding=utf-8 " Sets the character encoding for the file of this buffer
 set fileencodings=ucs-bom,utf8,prc,latin1,default
 set laststatus=2
 
-"" Whitespace
+"" Default indentation rules
 set expandtab
-set tabstop=4
-set softtabstop=4
-set wrap                      " don't wrap lines
+set shiftwidth=2
+set softtabstop=2
+set wrap                      " wrap lines
 
 syntax on " show syntax highlighting
 
@@ -141,7 +203,7 @@ set gdefault                    " have :s///g flag by default on
 function! s:setupWrapping()
     set wrap
     set wrapmargin=2
-    set textwidth=80
+    set textwidth=79
 endfunction
 
 augroup vimrcEx
@@ -162,6 +224,10 @@ augroup vimrcEx
     au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
     " make Ruby files follow standard indenting
     au FileType ruby setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    " make JavaScript files follow standard indenting
+    au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    " HTML file indentation
+    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
     " make XML files fold
     let g:xml_syntax_folding=1
     au FileType xml setlocal foldmethod=syntax
