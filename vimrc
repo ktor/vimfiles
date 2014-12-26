@@ -21,7 +21,7 @@ Plugin 'tomtom/tcomment_vim.git'
 
 " vim-scripts repos
 Plugin 'L9'
-Plugin 'vm'
+Plugin 'vm.vim'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 "
