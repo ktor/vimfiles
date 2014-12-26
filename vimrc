@@ -7,24 +7,38 @@ call vundle#begin(path)
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'tomtom/tcomment_vim.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'tomtom/tcomment_vim.git'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'vm'
+Plugin 'L9'
+Plugin 'vm'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
-
+"
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 "" Gui language
 language mes en
 set langmenu=en_US.UTF-8
@@ -115,7 +129,6 @@ set tabstop=4
 set softtabstop=4
 set wrap                      " don't wrap lines
 
-filetype plugin indent on
 syntax on " show syntax highlighting
 
 "" Searching
