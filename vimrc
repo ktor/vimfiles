@@ -23,11 +23,27 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 
+" code snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+Plugin 'bling/vim-airline'
+" will automatically populate the g:airline_symbols dictionary with the
+" powerline symbols
+let g:airline_powerline_fonts = 1
+Plugin 'powerline/fonts'
+
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'chrisbra/csv.vim'
+
 Plugin 'scrooloose/syntastic'
 " This does what it says on the tin. It will check your file on open too,
 " not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
 
 Plugin 'Valloric/YouCompleteMe'
 " These are the tweaks I apply to YCM's config, you don't need them but they
@@ -68,7 +84,12 @@ set langmenu=en_US.UTF-8
 
 set showcmd
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
-set guifont=Monaco:h11
+set guifont=Anonymice\ Powerline:h13
+" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
+" set guifont=Source\ Code\ Pro\ Medium:h13
+" set guifont=Source\ Code\ Pro\ Light:h13
+" set guifont=Source\ Code\ Pro\ ExtraLight:h13
 colo distinguished
 set number " show line numbers
 nnoremap Q <nop>
@@ -94,6 +115,11 @@ nmap <leader>O O<Esc>
 nmap <leader>m gt
 nmap <leader>n gT
 nmap <leader>v "+p
+map <leader>e :NERDTreeToggle<CR>
+
+" autoformatter as in Intellij IDEA
+map <leader>a :Autoformat<CR>
+
 " windows movements
 nmap <C-H> <C-W>H
 nmap <C-J> <C-W>J
@@ -107,14 +133,15 @@ nmap <C-C> <C-W>c
 nmap <C-N> <C-W>n
 nmap <C-S> <Esc>:w<CR>
 
-
-"
 " Mapping ESC in insert mode and command mode to double i
-imap ii <C-[>
-cmap ii <C-[>
+" imap ii <C-[>
+" cmap ii <C-[>
 nmap ; :
+
+" up and down in command line mode
 cmap <C-j> <Down>
 cmap <C-k> <Up>
+
 " gvim map F11 to full screen toggle
 " map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
