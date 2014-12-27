@@ -22,6 +22,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'terryma/vim-multiple-cursors'
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -121,10 +122,10 @@ map <leader>e :NERDTreeToggle<CR>
 map <leader>a :Autoformat<CR>
 
 " windows movements
-nmap <C-H> <C-W>H
-nmap <C-J> <C-W>J
-nmap <C-K> <C-W>K
-nmap <C-L> <C-W>L
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
 map <A-h> <C-W>h
 map <A-j> <C-W>j
 map <A-k> <C-W>k
