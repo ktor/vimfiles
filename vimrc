@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-sensible'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tomtom/tcomment_vim.git'
@@ -23,6 +24,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'grep.vim'
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -83,7 +85,6 @@ filetype plugin indent on    " required
 language mes en
 set langmenu=en_US.UTF-8
 
-set showcmd
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 set guifont=Anonymice\ Powerline:h13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
@@ -95,11 +96,9 @@ colo distinguished
 set number " show line numbers
 nnoremap Q <nop>
 set vb t_vb= " don't flash
-set ruler " show the cursor position all the time
 set cursorline " highlight the line of the cursor
 set scrolloff=3 " have some context around the current line always on screen
 set list " Show invisible characters
-set backspace=indent,eol,start " backspace through everything in insert mode
 set noswapfile
 
 set tags=tags;/ " This will check the current folder for tags file and keep going one directory up all the way to the root folder.
@@ -194,9 +193,12 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+imap <Left> <nop>
+imap <Right> <nop>
+imap <Up> <nop>
+imap <Down> <nop>
 
-" Indicator chars
-set listchars=tab:>-,trail:•,extends:>,precedes:<
+" String to put at the start of lines that have been wrapped.
 set showbreak=>\ 
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
@@ -211,7 +213,6 @@ set bomb " Some applications use the BOM to recognize the encoding of the file.
 set encoding=utf-8 " Sets the character encoding used inside Vim.
 set fileencoding=utf-8 " Sets the character encoding for the file of this buffer.
 set fileencodings=ucs-bom,utf8,prc,latin1,default
-set laststatus=2
 
 "" Default indentation rules
 set expandtab
@@ -219,11 +220,8 @@ set shiftwidth=2
 set softtabstop=2
 set wrap                      " wrap lines
 
-syntax on " show syntax highlighting
-
 "" Searching
 set hlsearch
-set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set gdefault                    " have :s///g flag by default on
@@ -272,8 +270,6 @@ augroup vimrcEx
     au BufLeave *.{vm} exe "normal! mV"
     au BufLeave *.{xml,properties} exe "normal! mX"
 augroup END
-
-set history=1000 " command history
 
 " set ssop-=options    " do not store global and local values in a session
 " set ssop-=folds      " do not store folds
