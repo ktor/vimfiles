@@ -25,6 +25,10 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'grep.vim'
+" easy install ag on windows:
+" 1. install chocolatey: https://chocolatey.org/
+" 2. install ag package: https://chocolatey.org/packages/ag
+Plugin 'rking/ag.vim'
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -82,7 +86,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "" Gui language
-language mes en
+language mes en_US.UTF-8
 set langmenu=en_US.UTF-8
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
