@@ -24,6 +24,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Tagbar'
 Plugin 'grep.vim'
 " easy install ag on windows:
 " 1. install chocolatey: https://chocolatey.org/
@@ -120,6 +121,7 @@ nmap <leader>m gt
 nmap <leader>n gT
 nmap <leader>v "+p
 map <leader>e :NERDTreeToggle<CR>
+map <leader>t :TagbarToggle<CR>
 
 " autoformatter as in Intellij IDEA
 map <leader>a :Autoformat<CR>
