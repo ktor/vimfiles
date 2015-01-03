@@ -41,7 +41,7 @@ Plugin 'bling/vim-airline'
 " will automatically populate the g:airline_symbols dictionary with the
 " powerline symbols
 let g:airline_powerline_fonts = 1
-AirlineTheme light
+let g:airline_theme='light'
 
 Plugin 'powerline/fonts'
 
