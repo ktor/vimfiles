@@ -1,4 +1,4 @@
-﻿set nocompatible                " choose no compatibility with legacy vi
+﻿set nocompatible               " choose no compatibility with legacy vi
 filetype off                   " required!
 
 set rtp+=~/vimfiles/bundle/Vundle.vim/
@@ -6,8 +6,7 @@ let path='~/vimfiles/bundle'
 call vundle#begin(path)
 
 " let Vundle manage Vundle
-" required!
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim' " required!
 
 " My Bundles here:
 "
@@ -41,6 +40,8 @@ Plugin 'bling/vim-airline'
 " will automatically populate the g:airline_symbols dictionary with the
 " powerline symbols
 let g:airline_powerline_fonts = 1
+AirlineTheme light
+
 Plugin 'powerline/fonts'
 
 Plugin 'Chiel92/vim-autoformat'
@@ -86,18 +87,19 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
 "" Gui language
 language mes en_US.UTF-8
 set langmenu=en_US.UTF-8
 
-" set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 set guifont=Anonymice\ Powerline:h13
+" set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 " set guifont=Source\ Code\ Pro\ Medium:h13
 " set guifont=Source\ Code\ Pro\ Light:h13
 " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-colo distinguished
+colo summerfruit256
 set number " show line numbers
 nnoremap Q <nop>
 set vb t_vb= " don't flash
@@ -139,9 +141,6 @@ nmap <C-C> <C-W>c
 nmap <C-N> <C-W>n
 nmap <C-S> <Esc>:w<CR>
 
-" Mapping ESC in insert mode and command mode to double i
-" imap ii <C-[>
-" cmap ii <C-[>
 nmap ; :
 
 " up and down in command line mode
@@ -149,47 +148,7 @@ cmap <C-j> <Down>
 cmap <C-k> <Up>
 
 " gvim map F11 to full screen toggle
-" map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-" if has('gui_running') && has('libcall')
-"     let g:MyVimLib = "gvimfullscreen.dll"
-"     function ToggleFullScreen()
-"         call libcallnr(g:MyVimLib, "ToggleFullScreen", 0)
-"     endfunction
-"
-"     "Alt+Enter
-"     map <A-Enter> <Esc>:call ToggleFullScreen()<CR>
-"
-"     let g:VimAlpha = 240
-"     function! SetAlpha(alpha)
-"         let g:VimAlpha = g:VimAlpha + a:alpha
-"         if g:VimAlpha < 180
-"             let g:VimAlpha = 180
-"         endif
-"         if g:VimAlpha > 255
-"             let g:VimAlpha = 255
-"         endif
-"         call libcall(g:MyVimLib, 'SetAlpha', g:VimAlpha)
-"     endfunction
-"
-"     "Shift+Y
-"     nmap <s-y> <Esc>:call SetAlpha(3)<CR>
-"     "Shift+T
-"     nmap <s-t> <Esc>:call SetAlpha(-3)<CR>
-"
-"     let g:VimTopMost = 0
-"     function! SwitchVimTopMostMode()
-"         if g:VimTopMost == 0
-"             let g:VimTopMost = 1
-"         else
-"             let g:VimTopMost = 0
-"         endif
-"         call libcall(g:MyVimLib, 'EnableTopMost', g:VimTopMost)
-"     endfunction
-"
-"     "Shift+R
-"     nmap <s-r> <Esc>:call SwitchVimTopMostMode()<CR>
-" endif
 
 set splitright
 set splitbelow
@@ -277,44 +236,11 @@ augroup vimrcEx
     au BufLeave *.{xml,properties} exe "normal! mX"
 augroup END
 
-" set ssop-=options    " do not store global and local values in a session
-" set ssop-=folds      " do not store folds
-
-if has("statusline") && !&cp
-    set laststatus=2 " always show the status bar
-    set statusline=%<%1*\ %f\ %* " filename
-    set statusline+=%2*%m%r%* " modified, readonly
-    set statusline+=\ %3*%y%* " filetype
-    set statusline+=%5*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-    set statusline+=%5*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-    set statusline+=%8*\ %{&ff}\                              "FileFormat (dos/unix..)
-    set statusline+=\ %4*%{fugitive#head()}%0*
-    set statusline+=%=                                        " left-right separation point
-    set statusline+=\ %5*%l%*/%L[%p%%]                        " current line/total lines
-    set statusline+=\ %5*%v%*[0x%B]                           " current column [hex char]
-endif
-
 " limits GUI settins to
 " 'g'	Grey menu items: Make menu items that are not active grey.
 " 't'	Include tearoff menu items.
 " 'm'	Menu bar is present.
 set guioptions=gt
-
-"" TODO review color settings
-"hi StatusLine term=inverse,bold cterm=NONE ctermbg=24 ctermfg=189
-"hi StatusLineNC term=inverse,bold cterm=NONE ctermbg=24 ctermfg=153
-"hi hl-SpecialKey guifg=#112605 guibg=#aefe7B
-
-" TODO review color settings in status line
-"hi User1 guifg=#ffdad8  guibg=#880c0e
-"hi User2 guifg=#000000  guibg=#F4905C
-"hi User3 guifg=#292b00  guibg=#f4f597
-"hi User4 guifg=#112605  guibg=#aefe7B
-"hi User5 guifg=#051d00  guibg=#7dcc7d
-"hi User7 guifg=#ffffff  guibg=#880c0e gui=bold
-"hi User8 guifg=#ffffff  guibg=#5b7fbb
-"hi User9 guifg=#ffffff  guibg=#810085
-"hi User0 guifg=#ffffff  guibg=#094afe
 
 augroup reload_vimrc " {
     autocmd!
