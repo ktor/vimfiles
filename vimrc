@@ -10,7 +10,8 @@ Plugin 'gmarik/Vundle.vim' " required!
 
 " My Bundles here:
 "
-" original repos on github
+" repos on github
+Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-surround.git'
@@ -110,6 +111,7 @@ set list " Show invisible characters
 set noswapfile
 
 set tags=tags;/ " This will check the current folder for tags file and keep going one directory up all the way to the root folder.
+set foldlevelstart=20
 
 let mapleader=","
 
@@ -213,16 +215,18 @@ augroup vimrcEx
     " https://github.com/sstephenson/bats
     au BufNewFile,BufRead *.bats setf sh
     " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-    au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+    au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 foldmethod=syntax
     " make Ruby files follow standard indenting
-    au FileType ruby setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    au FileType ruby setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
     " make JavaScript files follow standard indenting
-    au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
     " HTML file indentation
-    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 foldmethod=syntax
     " make XML files fold
     let g:xml_syntax_folding=1
     au FileType xml setlocal foldmethod=syntax
+    " make Java files fold
+    au FileType java setlocal softtabstop=2 tabstop=2 shiftwidth=2 textwidth=100 foldmethod=syntax
     " make CSS files fold
     autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,} filetype=css
     " mark Jekyll YAML frontmatter as comment
