@@ -2,6 +2,7 @@
 filetype off                   " required!
 
 set rtp+=~/vimfiles/bundle/Vundle.vim/
+set rtp+=~/vimfiles/ktor-snippets/
 let path='~/vimfiles/bundle'
 call vundle#begin(path)
 
@@ -11,6 +12,9 @@ Plugin 'gmarik/Vundle.vim' " required!
 " My Bundles here:
 "
 " repos on github
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+let g:session_autosave = 'yes'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
@@ -37,6 +41,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
 
 Plugin 'bling/vim-airline'
 " will automatically populate the g:airline_symbols dictionary with the
