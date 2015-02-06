@@ -9,12 +9,10 @@ call vundle#begin(path)
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim' " required!
 
-" My Bundles here:
-"
-" repos on github
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
@@ -24,10 +22,19 @@ Plugin 'kien/ctrlp.vim.git'
 Plugin 'bufexplorer.zip'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tomtom/tcomment_vim.git'
-Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
+
+" language support
+Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'tpope/vim-haml'
+Plugin 'vim-coffee-script'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Tagbar'
 Plugin 'grep.vim'
@@ -125,6 +132,7 @@ let mapleader=","
 " yank/paste to/from system clipboard
 map <leader>y "*y
 map <leader>p "*p
+set clipboard=unnamed
 " new line below/over
 nmap <leader>o o<Esc>
 nmap <leader>O O<Esc>
