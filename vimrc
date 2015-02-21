@@ -16,7 +16,10 @@ let g:session_autoload = 'no'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
+" editing improvements
 Plugin 'tpope/vim-surround.git'
+Plugin 'camelcasemotion'
+
 Plugin 'tpope/vim-sensible'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'bufexplorer.zip'
@@ -24,16 +27,19 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#E6FFF6 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87FFD5 ctermbg=4
 " automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
 
-" language support
+" language/framework support
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-haml'
 Plugin 'vim-coffee-script'
+Plugin 'burnettk/vim-angular'
+Plugin 'ktor/angular-vim-snippets'
+Plugin 'claco/jasmine.vim'
 
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Tagbar'
@@ -123,6 +129,8 @@ set cursorline " highlight the line of the cursor
 set scrolloff=3 " have some context around the current line always on screen
 set list " Show invisible characters
 set noswapfile
+" set big history
+set history=10000
 
 set tags=tags;/ " This will check the current folder for tags file and keep going one directory up all the way to the root folder.
 set foldlevelstart=20
@@ -140,7 +148,8 @@ nmap <leader>O O<Esc>
 nmap <leader>m gt
 nmap <leader>n gT
 nmap <leader>v "+p
-map <leader>e :NERDTreeToggle<CR>
+map <leader>r :NERDTreeToggle<CR>
+map <leader>f :NERDTreeFind<CR>
 map <leader>t :TagbarToggle<CR>
 
 " autoformatter as in Intellij IDEA
@@ -236,7 +245,7 @@ augroup vimrcEx
     " make JavaScript files follow standard indenting
     au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
     " HTML file indentation
-    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 foldmethod=syntax
+    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 foldmethod=syntax
     " make XML files fold
     let g:xml_syntax_folding=1
     au FileType xml setlocal foldmethod=syntax
