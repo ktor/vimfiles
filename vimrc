@@ -41,13 +41,9 @@ Plugin 'burnettk/vim-angular'
 Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
 
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Tagbar'
-Plugin 'grep.vim'
-" easy install ag on windows:
-" 1. install chocolatey: https://chocolatey.org/
-" 2. install ag package: https://chocolatey.org/packages/ag
-Plugin 'rking/ag.vim'
+Plugin 'terryma/vim-multiple-cursors' " similar to sublime text multiline editing
+Plugin 'Tagbar' " file outline
+Plugin 'dkprice/vim-easygrep' " grep files easier => https://github.com/dkprice/vim-easygrep
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
