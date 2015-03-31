@@ -40,10 +40,12 @@ Plugin 'vim-coffee-script'
 Plugin 'burnettk/vim-angular'
 Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
+Plugin 'logstash.vim'
 
 Plugin 'terryma/vim-multiple-cursors' " similar to sublime text multiline editing
 Plugin 'Tagbar' " file outline
 Plugin 'dkprice/vim-easygrep' " grep files easier => https://github.com/dkprice/vim-easygrep
+Plugin 'DataWraith/auto_mkdir' " create parent directories on file write
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -200,7 +202,7 @@ set autoread
 set bomb " Some applications use the BOM to recognize the encoding of the file.
 set encoding=utf-8 " Sets the character encoding used inside Vim.
 set fileencoding=utf-8 " Sets the character encoding for the file of this buffer.
-set fileencodings=ucs-bom,utf8,prc,latin1,default
+set fileencodings=utf8,ucs-bom,prc,latin1,default
 
 "" Default indentation rules
 set expandtab
