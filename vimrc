@@ -27,8 +27,8 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#E6FFF6 ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87FFD5 ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#FaFaFa ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#EdEDED ctermbg=4
 " automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
 
