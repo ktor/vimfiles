@@ -139,6 +139,7 @@ let mapleader=","
 " yank/paste to/from system clipboard
 map <leader>y "*y
 map <leader>p "*p
+" map default register to system clipboard on windows
 set clipboard=unnamed
 " new line below/over
 nmap <leader>o o<Esc>
