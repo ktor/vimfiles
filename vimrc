@@ -73,6 +73,7 @@ Plugin 'scrooloose/syntastic'
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
+let g:syntastic_haml_checkers = ['haml_lint']
 
 " Plugin 'Valloric/YouCompleteMe'
 " " These are the tweaks I apply to YCM's config, you don't need them but they
