@@ -41,6 +41,7 @@ Plugin 'burnettk/vim-angular'
 Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
 Plugin 'logstash.vim'
+" Plugin 'cakebaker/scss-syntax.vim'
 
 Plugin 'terryma/vim-multiple-cursors' " similar to sublime text multiline editing
 Plugin 'Tagbar' " file outline
@@ -62,7 +63,11 @@ Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='light'
 
+" themes and fonts
 Plugin 'powerline/fonts'
+Plugin 'croaky/vim-colors-github'
+" colo summerfruit256
+colo github
 
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
@@ -120,7 +125,6 @@ set guifont=Anonymice\ Powerline:h13
 " set guifont=Source\ Code\ Pro\ Medium:h13
 " set guifont=Source\ Code\ Pro\ Light:h13
 " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-colo summerfruit256
 set number " show line numbers
 nnoremap Q <nop>
 set vb t_vb= " don't flash
@@ -276,7 +280,11 @@ augroup vimrcEx
     " make Java files fold
     au FileType java setlocal softtabstop=2 tabstop=2 shiftwidth=2 textwidth=100 foldmethod=syntax
     " make CSS files fold
-    autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,} filetype=css
+    autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+    " set css filetype
+    autocmd BufRead,BufNewFile *.css setlocal filetype=css
+    " set scss file type
+    autocmd BufRead,BufNewFile *.scss setlocal filetype=scss
     " mark Jekyll YAML frontmatter as comment
     au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
     " magic markers: enable using `H/S/J/C/V to jump back to
