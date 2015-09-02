@@ -79,6 +79,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
 let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_java_checkers = ['']
 
 " Plugin 'Valloric/YouCompleteMe'
 " " These are the tweaks I apply to YCM's config, you don't need them but they
