@@ -47,6 +47,7 @@ Plugin 'terryma/vim-multiple-cursors' " similar to sublime text multiline editin
 Plugin 'Tagbar' " file outline
 Plugin 'dkprice/vim-easygrep' " grep files easier => https://github.com/dkprice/vim-easygrep
 Plugin 'DataWraith/auto_mkdir' " create parent directories on file write
+Plugin 'Rename' " allows renaming current file with :saveas command
 
 " code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
