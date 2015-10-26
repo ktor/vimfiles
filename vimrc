@@ -13,9 +13,9 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
-Plugin 'wakatime/vim-wakatime'
+" Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails.git'
+" Plugin 'tpope/vim-rails.git'
 " editing improvements
 Plugin 'tpope/vim-surround.git'
 Plugin 'camelcasemotion'
@@ -32,6 +32,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#EdEDED ctermbg=4
 " automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
 
+" Interactive command execution in Vim
+Plugin 'Shougo/vimproc.vim'
 " language/framework support
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
