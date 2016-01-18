@@ -1,4 +1,4 @@
-﻿set nocompatible               " choose no compatibility with legacy vi
+set nocompatible               " choose no compatibility with legacy vi
 filetype off                   " required!
 
 set rtp+=~/vimfiles/bundle/Vundle.vim/
@@ -17,6 +17,14 @@ let g:session_autoload = 'no'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-rails.git'
 " editing improvements
+"
+" tpope surround cheatsheet
+"   normal mode:
+"     ys to create surround
+"     cs to change surround
+"     ds to delete surround
+"   visual mode:
+"     S  to create surround
 Plugin 'tpope/vim-surround.git'
 Plugin 'camelcasemotion'
 
@@ -34,16 +42,22 @@ Plugin 'Raimondi/delimitMate'
 
 " Interactive command execution in Vim
 Plugin 'Shougo/vimproc.vim'
+
 " language/framework support
+" JavaScript
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'tpope/vim-haml'
-Plugin 'vim-coffee-script'
+" Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
-Plugin 'ktor/angular-vim-snippets'
+" Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
+Plugin 'Quramy/tsuquyomi' " typescript plugin
+Plugin 'vim-coffee-script'
+Plugin 'lambdatoast/elm.vim' " elm plugin
+
 Plugin 'logstash.vim'
-" Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'cakebaker/scss-syntax.vim'
 
 Plugin 'terryma/vim-multiple-cursors' " similar to sublime text multiline editing
 Plugin 'Tagbar' " file outline
@@ -233,7 +247,7 @@ set hidden
 set autoread
 
 "" File encoding
-set bomb " Some applications use the BOM to recognize the encoding of the file.
+set nobomb " Some applications use the BOM to recognize the encoding of the file.
 set encoding=utf-8 " Sets the character encoding used inside Vim.
 set fileencoding=utf-8 " Sets the character encoding for the file of this buffer.
 set fileencodings=utf8,ucs-bom,prc,latin1,default
