@@ -170,6 +170,13 @@ nmap <leader>O O<Esc>
 nmap <leader>m gt
 nmap <leader>n gT
 nmap <leader>v "+p
+
+" beautifiers, used mainly for code copy pasted in new buffer
+" beautify xml
+nmap <leader>bx :set filetype=xml<CR>:%!xmllint --format -<CR>
+" beautify json
+nmap <leader>bh :set filetype=json<CR>:%!python -m json.tool<CR>
+
 map <leader>r :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 map <leader>t :TagbarToggle<CR>
