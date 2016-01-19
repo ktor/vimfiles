@@ -175,7 +175,9 @@ nmap <leader>v "+p
 " beautify xml
 nmap <leader>bx :set filetype=xml<CR>:%!xmllint --format -<CR>
 " beautify json
-nmap <leader>bh :set filetype=json<CR>:%!python -m json.tool<CR>
+nmap <leader>bj :set filetype=json<CR>:%!python -m json.tool<CR>
+" beautify html
+nmap <leader>bh :set filetype=html<CR>:%!tidy -q -i --show-errors 0 --indent yes<CR>
 
 map <leader>r :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
