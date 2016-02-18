@@ -15,9 +15,10 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
+
 " Plugin 'tpope/vim-rails.git'
 " editing improvements
-"
+
 " tpope surround cheatsheet
 "   normal mode:
 "     ys to create surround
@@ -26,13 +27,31 @@ Plugin 'tpope/vim-fugitive'
 "   visual mode:
 "     S  to create surround
 Plugin 'tpope/vim-surround.git'
+
+" CamelCaseMotion Help
+"  <leader>w <leader>b and <leader>e
 Plugin 'camelcasemotion'
 
 Plugin 'tpope/vim-sensible'
+
+" CtrlP Help
+"  Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"  Press <c-f> and <c-b> to cycle between modes.
 Plugin 'kien/ctrlp.vim.git'
+
+" BufExplorer Help
+" <leader>be
 Plugin 'bufexplorer.zip'
+
+" NerdTree Help
+" <leader>r - show tree
+" <leader>f - reveal current file in tree
 Plugin 'scrooloose/nerdtree.git'
+
+" TComment Help
+" gc in visual mode - toggle comment on selected code block
 Plugin 'tomtom/tcomment_vim.git'
+
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#FaFaFa ctermbg=3
@@ -54,7 +73,9 @@ Plugin 'burnettk/vim-angular'
 Plugin 'claco/jasmine.vim'
 Plugin 'Quramy/tsuquyomi' " typescript plugin
 Plugin 'vim-coffee-script'
-Plugin 'lambdatoast/elm.vim' " elm plugin
+"Plugin 'lambdatoast/elm.vim' " elm plugin
+Plugin 'elmcast/elm-vim' " elm plugin
+Plugin 'avh4/elm-format' " elm formatter
 
 Plugin 'logstash.vim'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -78,13 +99,12 @@ Plugin 'bling/vim-airline'
 " will automatically populate the g:airline_symbols dictionary with the
 " powerline symbols
 let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
+" let g:airline_theme='light'
 
 " themes and fonts
 Plugin 'powerline/fonts'
 Plugin 'croaky/vim-colors-github'
-" colo summerfruit256
-colo github
+Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
@@ -94,7 +114,8 @@ Plugin 'scrooloose/syntastic'
 " not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
+" let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
+let g:syntastic_html_tidy_exec='tidy'
 let g:syntastic_haml_checkers = ['haml_lint']
 let g:syntastic_java_checkers = ['']
 
@@ -131,6 +152,13 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" theme settings
+" colo summerfruit256
+" colo github
+syntax enable
+set background=light
+colorscheme solarized
 
 "" Gui language
 language mes en_US.UTF-8
@@ -183,6 +211,13 @@ map <leader>r :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 map <leader>t :TagbarToggle<CR>
 
+" language specific mappings
+
+" elm - starts with <leader>e
+
+nmap <leader>em :ElmMake<CR>
+nmap <leader>ef :ElmFormat<CR>
+
 " Convert slashes to backslashes for Windows.
 if has('win32')
   nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
@@ -211,7 +246,7 @@ nmap <C-C> <C-W>c
 nmap <C-N> <C-W>n
 nmap <C-S> <Esc>:w<CR>
 
-nmap ; :
+" nmap ; :
 
 " up and down in command line mode
 cmap <C-j> <Down>
