@@ -165,6 +165,7 @@ language mes en_US.UTF-8
 set langmenu=en_US.UTF-8
 
 set guifont=Anonymice\ Powerline:h13
+set linespace=4
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
@@ -194,9 +195,14 @@ set clipboard=unnamed
 " new line below/over
 nmap <leader>o o<Esc>
 nmap <leader>O O<Esc>
-" paste lines from unnamed register and fix indentation
+" next / previous tab
 nmap <leader>m gt
 nmap <leader>n gT
+" next / previous error
+nmap <leader>pe :cp<CR>
+nmap <leader>ee :cn<CR>
+
+" paste lines from unnamed register and fix indentation
 nmap <leader>v "+p
 
 " beautifiers, used mainly for code copy pasted in new buffer
@@ -217,17 +223,18 @@ map <leader>t :TagbarToggle<CR>
 
 nmap <leader>em :ElmMake<CR>
 nmap <leader>ef :ElmFormat<CR>
+nmap <leader>ed :ElmShowDocs<CR>
 
 " Convert slashes to backslashes for Windows.
 if has('win32')
-  nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
-  nmap <leader>cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+nmap <leader>cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
-  " This will copy the path in 8.3 short format, for DOS and Windows 9x
-  nmap <leader>c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
+" This will copy the path in 8.3 short format, for DOS and Windows 9x
+nmap <leader>c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
 else
-  nmap <leader>cs :let @*=expand("%")<CR>
-  nmap <leader>cl :let @*=expand("%:p")<CR>
+nmap <leader>cs :let @*=expand("%")<CR>
+nmap <leader>cl :let @*=expand("%:p")<CR>
 endif
 
 " autoformatter as in Intellij IDEA
@@ -257,15 +264,15 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " resize font with Ctrl-Up and Ctrl-Down
 nnoremap <C-Up> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)+1)',
- \ '')<CR>
+      \ &guifont,
+      \ ':h\zs\d\+',
+      \ '\=eval(submatch(0)+1)',
+      \ '')<CR>
 nnoremap <C-Down> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)-1)',
- \ '')<CR>
+      \ &guifont,
+      \ ':h\zs\d\+',
+      \ '\=eval(submatch(0)-1)',
+      \ '')<CR>
 
 set splitright
 set splitbelow
@@ -309,54 +316,54 @@ set smartcase                   " ... unless they contain at least one capital l
 set gdefault                    " have :s///g flag by default on
 
 function! s:setupWrapping()
-    set wrap
-    set wrapmargin=2
-    set textwidth=79
+  set wrap
+  set wrapmargin=2
+  set textwidth=79
 endfunction
 
 augroup vimrcEx
-    " Clear all autocmds in the group
-    autocmd!
-    " Avoid showing trailing whitespace when in insert mode
-    au InsertEnter * :set listchars-=trail:•
-    au InsertLeave * :set listchars+=trail:•
-    " Some file types use real tabs
-    au FileType {make,gitconfig} set noexpandtab
-    " Make sure all markdown files have the correct filetype set and setup wrapping
-    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | setlocal filetype=markdown | call s:setupWrapping()
-    " Treat JSON files like JavaScript
-    au BufNewFile,BufRead *.json setf javascript
-    " https://github.com/sstephenson/bats
-    au BufNewFile,BufRead *.bats setf sh
-    " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-    au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 foldmethod=syntax
-    " make Ruby files follow standard indenting
-    au FileType ruby setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
-    " make JavaScript files follow standard indenting
-    au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
-    " HTML file indentation
-    au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 foldmethod=syntax
-    " make XML files fold
-    let g:xml_syntax_folding=1
-    au FileType xml setlocal foldmethod=syntax
-    " make Java files fold
-    au FileType java setlocal softtabstop=2 tabstop=2 shiftwidth=2 textwidth=100 foldmethod=syntax
-    " make CSS files fold
-    autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-    " set css filetype
-    autocmd BufRead,BufNewFile *.css setlocal filetype=css
-    " set scss file type
-    autocmd BufRead,BufNewFile *.scss setlocal filetype=scss
-    " mark Jekyll YAML frontmatter as comment
-    au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
-    " magic markers: enable using `H/S/J/C/V to jump back to
-    " last HTML, stylesheet, JS, [Ruby,Java] or Velocity code buffer
-    au BufLeave *.{erb,html,jsp,jspf,xhtml} exe "normal! mH"
-    au BufLeave *.{css,scss,sass} exe "normal! mS"
-    au BufLeave *.{js,coffee} exe "normal! mJ"
-    au BufLeave *.{rb,java} exe "normal! mC"
-    au BufLeave *.{vm} exe "normal! mV"
-    au BufLeave *.{xml,properties} exe "normal! mX"
+  " Clear all autocmds in the group
+  autocmd!
+  " Avoid showing trailing whitespace when in insert mode
+  au InsertEnter * :set listchars-=trail:•
+  au InsertLeave * :set listchars+=trail:•
+  " Some file types use real tabs
+  au FileType {make,gitconfig} set noexpandtab
+  " Make sure all markdown files have the correct filetype set and setup wrapping
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | setlocal filetype=markdown | call s:setupWrapping()
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json setf javascript
+  " https://github.com/sstephenson/bats
+  au BufNewFile,BufRead *.bats setf sh
+  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 foldmethod=syntax
+  " make Ruby files follow standard indenting
+  au FileType ruby setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
+  " make JavaScript files follow standard indenting
+  au FileType JavaScript setl softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 foldmethod=syntax
+  " HTML file indentation
+  au FileType HTML setl softtabstop=4 tabstop=4 shiftwidth=4 foldmethod=syntax
+  " make XML files fold
+  let g:xml_syntax_folding=1
+  au FileType xml setlocal foldmethod=syntax
+  " make Java files fold
+  au FileType java setlocal softtabstop=2 tabstop=2 shiftwidth=2 textwidth=100 foldmethod=syntax
+  " make CSS files fold
+  autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+  " set css filetype
+  autocmd BufRead,BufNewFile *.css setlocal filetype=css
+  " set scss file type
+  autocmd BufRead,BufNewFile *.scss setlocal filetype=scss
+  " mark Jekyll YAML frontmatter as comment
+  au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
+  " magic markers: enable using `H/S/J/C/V to jump back to
+  " last HTML, stylesheet, JS, [Ruby,Java] or Velocity code buffer
+  au BufLeave *.{erb,html,jsp,jspf,xhtml} exe "normal! mH"
+  au BufLeave *.{css,scss,sass} exe "normal! mS"
+  au BufLeave *.{js,coffee} exe "normal! mJ"
+  au BufLeave *.{rb,java} exe "normal! mC"
+  au BufLeave *.{vm} exe "normal! mV"
+  au BufLeave *.{xml,properties} exe "normal! mX"
 augroup END
 
 " limits GUI settins to
@@ -366,6 +373,6 @@ augroup END
 set guioptions=gt
 
 augroup reload_vimrc " {
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
