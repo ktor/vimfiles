@@ -1,5 +1,7 @@
 inactive-bund1e/
 bundle/*
+views/
+.vimrc
 .netrwhist
 *~
 sessions/

@@ -43,9 +43,6 @@ Plugin 'kien/ctrlp.vim.git'
 " <leader>be
 Plugin 'bufexplorer.zip'
 
-" NerdTree Help
-" <leader>r - show tree
-" <leader>f - reveal current file in tree
 Plugin 'scrooloose/nerdtree.git'
 
 " TComment Help
@@ -71,11 +68,17 @@ Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
 " Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
+
+" Typescript
 Plugin 'Quramy/tsuquyomi' " typescript plugin
-Plugin 'vim-coffee-script'
-"Plugin 'lambdatoast/elm.vim' " elm plugin
+Plugin 'leafgarland/typescript-vim' " typescript syntax highlight
+Plugin 'Quramy/vim-js-pretty-template' " provides syntax highlight for content in Template Strings
+
+Plugin 'mhartington/vim-typings' " provides .d.ts management for typings users.
+" Plugin 'vim-coffee-script'
+" Plugin 'lambdatoast/elm.vim' " elm plugin
 Plugin 'elmcast/elm-vim' " elm plugin
-Plugin 'avh4/elm-format' " elm formatter
+" Plugin 'avh4/elm-format' " elm formatter
 
 Plugin 'logstash.vim'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -101,6 +104,10 @@ Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='light'
 
+" Distraction free vim writing
+" :Goyo
+Plugin 'junegunn/goyo.vim'
+
 " themes and fonts
 Plugin 'powerline/fonts'
 Plugin 'croaky/vim-colors-github'
@@ -108,16 +115,10 @@ Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
+Plugin 'vim-scripts/javalog.vim'
+Plugin 'vim-scripts/jbosslog'
 
 Plugin 'scrooloose/syntastic'
-" This does what it says on the tin. It will check your file on open too,
-" not just on save.
-" You might not want this, so just leave it out if you don't.
-let g:syntastic_check_on_open=1
-" let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
-let g:syntastic_html_tidy_exec='tidy'
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_java_checkers = ['']
 
 " Plugin 'Valloric/YouCompleteMe'
 " " These are the tweaks I apply to YCM's config, you don't need them but they
@@ -127,6 +128,8 @@ let g:syntastic_java_checkers = ['']
 " let g:ycm_add_preview_to_completeopt=0
 " let g:ycm_confirm_extra_conf=0
 " set completeopt-=preview
+
+" Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'marijnh/tern_for_vim'
 
@@ -140,6 +143,22 @@ Plugin 'vm.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+"call vundle#config#require(g:bundles)
+
+" Syntastic 
+" This does what it says on the tin. It will check your file on open too,
+" not just on save.
+" You might not want this, so just leave it out if you don't.
+let g:syntastic_check_on_open=0
+" let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
+let g:syntastic_html_tidy_exec='tidy'
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_java_checkers = ['']
+let g:syntastic_sh_checkers = ['']
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -160,27 +179,38 @@ syntax enable
 set background=light
 colorscheme solarized
 
+"" Neocomplete
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
 "" Gui language
 language mes en_US.UTF-8
 set langmenu=en_US.UTF-8
 
 set guifont=Anonymice\ Powerline:h13
-set linespace=4
+set linespace=5
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 " set guifont=Source\ Code\ Pro\ Medium:h13
 " set guifont=Source\ Code\ Pro\ Light:h13
 " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-set number " show line numbers
 nnoremap Q <nop>
 set vb t_vb= " don't flash
 set cursorline " highlight the line of the cursor
 set scrolloff=3 " have some context around the current line always on screen
-set list " Show invisible characters
 set noswapfile
 " set big history
 set history=10000
+" set whitespace characters
+set list
 
 set tags=tags;/ " This will check the current folder for tags file and keep going one directory up all the way to the root folder.
 set foldlevelstart=20
@@ -199,8 +229,8 @@ nmap <leader>O O<Esc>
 nmap <leader>m gt
 nmap <leader>n gT
 " next / previous error
-nmap <leader>pe :cp<CR>
-nmap <leader>ee :cn<CR>
+nmap <leader>cp :cp<CR>
+nmap <leader>cn :cn<CR>
 
 " paste lines from unnamed register and fix indentation
 nmap <leader>v "+p
@@ -213,17 +243,23 @@ nmap <leader>bj :set filetype=json<CR>:%!python -m json.tool<CR>
 " beautify html
 nmap <leader>bh :set filetype=html<CR>:%!tidy -q -i --show-errors 0 --indent yes<CR>
 
-map <leader>r :NERDTreeToggle<CR>
+" NerdTree Help
+" <leader>r - show tree
+" <leader>f - reveal current file in tree
+map <leader>n :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 map <leader>t :TagbarToggle<CR>
 
 " language specific mappings
 
 " elm - starts with <leader>e
-
-nmap <leader>em :ElmMake<CR>
-nmap <leader>ef :ElmFormat<CR>
-nmap <leader>ed :ElmShowDocs<CR>
+let g:elm_format_autosave = 1
+" nmap <leader>em :ElmMake<CR>
+" nmap <leader>ef :ElmFormat<CR>
+" nmap <leader>ed :ElmShowDocs<CR>
+" nnoremap <leader>el :ElmEvalLine<CR>
+" vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+" nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Convert slashes to backslashes for Windows.
 if has('win32')
@@ -297,6 +333,9 @@ set hidden
 " Auto-reload buffers when file changed on disk
 set autoread
 
+" Working with editors/IDEs supporting “safe write” (https://webpack.github.io/docs/webpack-dev-server.html)
+set backupcopy=yes
+
 "" File encoding
 set nobomb " Some applications use the BOM to recognize the encoding of the file.
 set encoding=utf-8 " Sets the character encoding used inside Vim.
@@ -308,6 +347,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set wrap                      " wrap lines
+set nonumber
 
 "" Searching
 set hlsearch
@@ -325,8 +365,8 @@ augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
   " Avoid showing trailing whitespace when in insert mode
-  au InsertEnter * :set listchars-=trail:•
-  au InsertLeave * :set listchars+=trail:•
+  au InsertEnter * set listchars=tab:>·,extends:>,precedes:<
+  au InsertLeave * set listchars=trail:~
   " Some file types use real tabs
   au FileType {make,gitconfig} set noexpandtab
   " Make sure all markdown files have the correct filetype set and setup wrapping
@@ -356,6 +396,11 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.scss setlocal filetype=scss
   " mark Jekyll YAML frontmatter as comment
   au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
+  " jboss configuration file validation
+  autocmd BufNewFile,BufRead standalone.xml call s:xml_validate()
+  function! s:xml_validate()
+      let g:syntastic_xml_xmllint_args = "--schema c:\\EAP-6.3\\jboss-eap-6.3\\docs\\schema\\jboss-as-config_1_6.xsd"
+  endfun
   " magic markers: enable using `H/S/J/C/V to jump back to
   " last HTML, stylesheet, JS, [Ruby,Java] or Velocity code buffer
   au BufLeave *.{erb,html,jsp,jspf,xhtml} exe "normal! mH"
