@@ -1,5 +1,6 @@
-#Cheatsheet
-##Command mode
+# Cheatsheet
+
+## Command mode
 
 Shortcut/command | Description
 --- | ---
@@ -9,7 +10,8 @@ e ~+Ctrl+K | Jump to previous command that started with e ~
 Ctrl-F | Edit command
 :Goyo | Distraction free writing
 
-##Normal mode
+## Normal mode
+
 Shortcut/command | Description
 --- | ---
 ,y | yank to windows clipboard
