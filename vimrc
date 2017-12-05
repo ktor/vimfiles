@@ -15,6 +15,7 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
+Plugin 'yangmillstheory/vim-snipe'
 
 " Plugin 'tpope/vim-rails.git'
 " editing improvements
@@ -417,6 +418,13 @@ augroup END
 " 'm'	Menu bar is present.
 set guioptions=gt
 
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
 augroup reload_vimrc " {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
