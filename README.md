@@ -14,26 +14,30 @@ Ctrl-F | Edit command
 
 Shortcut/command | Description
 --- | ---
-,y | yank to windows clipboard
-,p | paste from windows clipboard
-,v | paste from windows clipboard and fix indentation
-,o | new line below
-,O | new line above
-,m | next tab
-,n | previous tab
-,cp | previous error
-,cn | next error
-,bx | set filetype to xml and beautify
-,bj | set filetype to json and beautify
-,bh | set filetype to html and beautify
-,r | show/hide nerd tree
-,f | show current file in nerd tree
-,t | show/hide tagbar
-,em | elm make
-,ef | elm format
-,ed | elm docs
-,cs | convert slashes to backslashes
-,cl | convert backslashes to slashes
-,a | autoformat code
+<leader>y | yank to windows clipboard
+<leader>p | paste from windows clipboard
+<leader>v | paste from windows clipboard and fix indentation
+<leader>bx | set filetype to xml and beautify
+<leader>bj | set filetype to json and beautify
+<leader>bh | set filetype to html and beautify
+<leader>r | show/hide nerd tree
+<leader>f | show current file in nerd tree
+<leader>t | show/hide tagbar
+<leader>em | elm make
+<leader>ef | elm format
+<leader>ed | elm docs
+<leader>cs | convert slashes to backslashes
+<leader>cl | convert backslashes to slashes
+<leader>a | autoformat code
 Ctrl-Up | increase font size
 Ctrl-Down | descrease font size
+
+### Movement
+Shortcut/command | Description
+--- | ---
+<leader>o | new line below
+<leader>O | new line above
+<leader>m | next tab
+<leader>n | previous tab
+<leader>cp | previous error
+<leader>cn | next error

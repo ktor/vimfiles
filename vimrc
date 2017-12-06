@@ -1,14 +1,14 @@
 set nocompatible               " choose no compatibility with legacy vi
 filetype off                   " required!
 
+" Paths
 set rtp+=~/vimfiles/bundle/Vundle.vim/
 set rtp+=~/vimfiles/ktor-snippets/
 let path='~/vimfiles/bundle'
 call vundle#begin(path)
 
-" let Vundle manage Vundle
+" plugins management
 Plugin 'gmarik/Vundle.vim' " required!
-
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
@@ -16,7 +16,6 @@ let g:session_autoload = 'no'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'yangmillstheory/vim-snipe'
-
 " Plugin 'tpope/vim-rails.git'
 " editing improvements
 
@@ -290,7 +289,29 @@ nmap <C-C> <C-W>c
 nmap <C-N> <C-W>n
 nmap <C-S> <Esc>:w<CR>
 
-" nmap ; :
+" vim-snipe movements
+map <leader><leader>F <Plug>(snipe-F)
+map <leader><leader>f <Plug>(snipe-f)
+map <leader><leader>T <Plug>(snipe-T)
+map <leader><leader>t <Plug>(snipe-t)
+
+map <leader><leader>w <Plug>(snipe-w)
+map <leader><leader>W <Plug>(snipe-W)
+map <leader><leader>e <Plug>(snipe-e)
+map <leader><leader>E <Plug>(snipe-E)
+map <leader><leader>b <Plug>(snipe-b)
+map <leader><leader>B <Plug>(snipe-B)
+map <leader><leader>ge <Plug>(snipe-ge)
+map <leader><leader>gE <Plug>(snipe-gE)
+
+nmap <leader><leader>r <Plug>(snipe-f-r)
+nmap <leader><leader>R <Plug>(snipe-F-r)
+
+nmap <leader><leader>x <Plug>(snipe-f-x)
+nmap <leader><leader>X <Plug>(snipe-F-x)
+
+nmap <leader><leader>] <Plug>(snipe-f-xp)
+nmap <leader><leader>[ <Plug>(snipe-f-xp)
 
 " up and down in command line mode
 cmap <C-j> <Down>
