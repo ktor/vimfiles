@@ -8,6 +8,9 @@ let path='~/vimfiles/bundle'
 call vundle#begin(path)
 
 " plugins management
+Plugin 'LnL7/vim-nix'
+"Plugin 'MarcWeber/vim-addon-nix'
+Plugin 'ledger/vim-ledger'
 Plugin 'gmarik/Vundle.vim' " required!
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
@@ -320,6 +323,9 @@ cmap <C-k> <Up>
 " gvim map F11 to full screen toggle
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
+" sudo write with :w!! command
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 " resize font with Ctrl-Up and Ctrl-Down
 nnoremap <C-Up> :silent! let &guifont = substitute(
       \ &guifont,
@@ -412,6 +418,8 @@ augroup vimrcEx
   au FileType java setlocal softtabstop=2 tabstop=2 shiftwidth=2 textwidth=100 foldmethod=syntax
   " make CSS files fold
   autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+  " set ledger filetype
+  autocmd BufRead,BufNewFile *.journal setlocal filetype=ledger
   " set css filetype
   autocmd BufRead,BufNewFile *.css setlocal filetype=css
   " set scss file type
