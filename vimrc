@@ -41,6 +41,8 @@ Plugin 'tpope/vim-sensible'
 "  Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
 "  Press <c-f> and <c-b> to cycle between modes.
 Plugin 'kien/ctrlp.vim.git'
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
 
 " BufExplorer Help
 " <leader>be
@@ -71,6 +73,9 @@ Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
 " Plugin 'ktor/angular-vim-snippets'
 Plugin 'claco/jasmine.vim'
+
+" Haskell
+Plugin 'autozimu/LanguageClient-neovim'
 
 " Typescript
 Plugin 'Quramy/tsuquyomi' " typescript plugin
@@ -118,8 +123,9 @@ Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
-Plugin 'vim-scripts/javalog.vim'
-Plugin 'vim-scripts/jbosslog'
+
+" Plugin 'vim-scripts/javalog.vim'
+" Plugin 'vim-scripts/jbosslog'
 
 Plugin 'scrooloose/syntastic'
 
@@ -134,7 +140,7 @@ Plugin 'scrooloose/syntastic'
 
 " Plugin 'Shougo/neocomplete.vim'
 
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 
 Plugin 'Lokaltog/vim-distinguished'
 
@@ -156,6 +162,7 @@ let g:syntastic_check_on_open=0
 " let g:syntastic_html_tidy_exec='c:\tidy2\tidy.exe'
 let g:syntastic_html_tidy_exec='tidy'
 let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_java_checkers = ['']
 let g:syntastic_sh_checkers = ['']
 
@@ -340,6 +347,20 @@ nnoremap <C-Down> :silent! let &guifont = substitute(
 
 set splitright
 set splitbelow
+
+" LanguageClient configuration
+set rtp+=~/vimfiles/LanguageClient-neovim
+let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper','-d','-l','hie-server.log','--lsp'] }
+let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nmap <leader>lk :call LanguageClient#textDocument_hover()<CR>
+nmap <leader>lg :call LanguageClient#textDocument_definition()<CR>
+nmap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nmap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nmap <leader>lb :call LanguageClient#textDocument_references()<CR>
+nmap <leader>la :call LanguageClient#textDocument_codeAction()<CR>
+nmap <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " disable cursor keys in normal mode
 map <Left> :echo "no!"<cr>
