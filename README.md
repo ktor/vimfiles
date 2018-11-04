@@ -1,5 +1,5 @@
 # Cheatsheet
-&lt;leader&rt; is ,
+&lt;leader&gt; is ,
 
 ## Command mode
 
@@ -15,30 +15,30 @@ Ctrl-F | Edit command
 
 Shortcut/command | Description
 --- | ---
-&lt;leader&rt;y | yank to windows clipboard
-&lt;leader&rt;p | paste from windows clipboard
-&lt;leader&rt;v | paste from windows clipboard and fix indentation
-&lt;leader&rt;bx | set filetype to xml and beautify
-&lt;leader&rt;bj | set filetype to json and beautify
-&lt;leader&rt;bh | set filetype to html and beautify
-&lt;leader&rt;r | show/hide nerd tree
-&lt;leader&rt;f | show current file in nerd tree
-&lt;leader&rt;t | show/hide tagbar
-&lt;leader&rt;em | elm make
-&lt;leader&rt;ef | elm format
-&lt;leader&rt;ed | elm docs
-&lt;leader&rt;cs | convert slashes to backslashes
-&lt;leader&rt;cl | convert backslashes to slashes
-&lt;leader&rt;a | autoformat code
+&lt;leader&gt;y | yank to windows clipboard
+&lt;leader&gt;p | paste from windows clipboard
+&lt;leader&gt;v | paste from windows clipboard and fix indentation
+&lt;leader&gt;bx | set filetype to xml and beautify
+&lt;leader&gt;bj | set filetype to json and beautify
+&lt;leader&gt;bh | set filetype to html and beautify
+&lt;leader&gt;r | show/hide nerd tree
+&lt;leader&gt;f | show current file in nerd tree
+&lt;leader&gt;t | show/hide tagbar
+&lt;leader&gt;em | elm make
+&lt;leader&gt;ef | elm format
+&lt;leader&gt;ed | elm docs
+&lt;leader&gt;cs | convert slashes to backslashes
+&lt;leader&gt;cl | convert backslashes to slashes
+&lt;leader&gt;a | autoformat code
 Ctrl-Up | increase font size
 Ctrl-Down | descrease font size
 
 ### Movement
 Shortcut/command | Description
 --- | ---
-&lt;leader&rt;o | new line below
-&lt;leader&rt;O | new line above
-&lt;leader&rt;m | next tab
-&lt;leader&rt;n | previous tab
-&lt;leader&rt;cp | previous error
-&lt;leader&rt;cn | next error
+&lt;leader&gt;o | new line below
+&lt;leader&gt;O | new line above
+&lt;leader&gt;m | next tab
+&lt;leader&gt;n | previous tab
+&lt;leader&gt;cp | previous error
+&lt;leader&gt;cn | next error
