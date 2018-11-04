@@ -15,6 +15,7 @@ Ctrl-F | Edit command
 
 Shortcut/command | Description
 --- | ---
+&lt;leader&gt;be | show buffer explorer
 &lt;leader&gt;y | yank to windows clipboard
 &lt;leader&gt;p | paste from windows clipboard
 &lt;leader&gt;v | paste from windows clipboard and fix indentation
