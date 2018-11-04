@@ -1,4 +1,5 @@
 # Cheatsheet
+&lt;leader&rt; is ,
 
 ## Command mode
 
@@ -14,30 +15,30 @@ Ctrl-F | Edit command
 
 Shortcut/command | Description
 --- | ---
-<leader>y | yank to windows clipboard
-<leader>p | paste from windows clipboard
-<leader>v | paste from windows clipboard and fix indentation
-<leader>bx | set filetype to xml and beautify
-<leader>bj | set filetype to json and beautify
-<leader>bh | set filetype to html and beautify
-<leader>r | show/hide nerd tree
-<leader>f | show current file in nerd tree
-<leader>t | show/hide tagbar
-<leader>em | elm make
-<leader>ef | elm format
-<leader>ed | elm docs
-<leader>cs | convert slashes to backslashes
-<leader>cl | convert backslashes to slashes
-<leader>a | autoformat code
+&lt;leader&rt;y | yank to windows clipboard
+&lt;leader&rt;p | paste from windows clipboard
+&lt;leader&rt;v | paste from windows clipboard and fix indentation
+&lt;leader&rt;bx | set filetype to xml and beautify
+&lt;leader&rt;bj | set filetype to json and beautify
+&lt;leader&rt;bh | set filetype to html and beautify
+&lt;leader&rt;r | show/hide nerd tree
+&lt;leader&rt;f | show current file in nerd tree
+&lt;leader&rt;t | show/hide tagbar
+&lt;leader&rt;em | elm make
+&lt;leader&rt;ef | elm format
+&lt;leader&rt;ed | elm docs
+&lt;leader&rt;cs | convert slashes to backslashes
+&lt;leader&rt;cl | convert backslashes to slashes
+&lt;leader&rt;a | autoformat code
 Ctrl-Up | increase font size
 Ctrl-Down | descrease font size
 
 ### Movement
 Shortcut/command | Description
 --- | ---
-<leader>o | new line below
-<leader>O | new line above
-<leader>m | next tab
-<leader>n | previous tab
-<leader>cp | previous error
-<leader>cn | next error
+&lt;leader&rt;o | new line below
+&lt;leader&rt;O | new line above
+&lt;leader&rt;m | next tab
+&lt;leader&rt;n | previous tab
+&lt;leader&rt;cp | previous error
+&lt;leader&rt;cn | next error
