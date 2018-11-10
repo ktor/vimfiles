@@ -44,6 +44,18 @@ Plugin 'kien/ctrlp.vim.git'
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 
+" command ctrlp to ignore files specified in .gitignore
+if executable('ag')
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+  " and .agignore.
+  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -f -g ""'
+else
+  "ctrl+p ignore files in .gitignore
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+endif
+
 " BufExplorer Help
 " <leader>be
 Plugin 'bufexplorer.zip'

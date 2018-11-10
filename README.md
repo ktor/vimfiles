@@ -10,11 +10,14 @@ Ctrl-K | Jump to previous command
 e ~+Ctrl+K | Jump to previous command that started with e ~
 Ctrl-F | Edit command
 :Goyo | Distraction free writing
+:setlocal spell spelllang=sk_sk | Set spell language to Slovak
 
 ## Normal mode
 
 Shortcut/command | Description
 --- | ---
+]s/[s | find next / previous spelling error
+z= | suggest correctly spelled words for the word under/after the cursor
 &lt;leader&gt;be | show buffer explorer
 &lt;leader&gt;y | yank to windows clipboard
 &lt;leader&gt;p | paste from windows clipboard
