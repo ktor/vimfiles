@@ -243,7 +243,7 @@ let mapleader=","
 map <leader>y "*y
 map <leader>p "*p
 " map default register to system clipboard on windows
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 " new line below/over
 nmap <leader>o o<Esc>
 nmap <leader>O O<Esc>
