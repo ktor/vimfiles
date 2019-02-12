@@ -18,6 +18,7 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'yangmillstheory/vim-snipe'
 " Plugin 'tpope/vim-rails.git'
 " editing improvements
@@ -45,12 +46,23 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 
 " command ctrlp to ignore files specified in .gitignore
-if executable('ag')
-  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  set grepprg=ag\ --nogroup\ --nocolor
+" if executable('ag')
+"   " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+"   set grepprg=ag\ --nogroup\ --nocolor
+"   " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+"   " and .agignore.
+"   let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -f -g ""'
+" else
+"   "ctrl+p ignore files in .gitignore
+"   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" endif
+
+if executable('rg')
+  " Use ripgrep
+  set grepprg=rg\ --color\ never\ --no-heading
   " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
   " and .agignore.
-  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -f -g ""'
+  let g:ctrlp_user_command = 'rg --color never --files %s'
 else
   "ctrl+p ignore files in .gitignore
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -123,6 +135,7 @@ Plugin 'bling/vim-airline'
 " powerline symbols
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='light'
+let g:airline_theme = 'pencil'
 
 " Distraction free vim writing
 " :Goyo
@@ -132,6 +145,12 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'powerline/fonts'
 Plugin 'croaky/vim-colors-github'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
+let g:pencil_terminal_italics = 1
+let g:pencil_gutter_color = 1
+let g:pencil_neutral_headings = 1
+let g:pencil_higher_contrast_ui = 0
+let g:pencil_spell_undercurl = 1
 
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
@@ -199,7 +218,7 @@ filetype plugin indent on    " required
 " colo github
 syntax enable
 set background=light
-colorscheme solarized
+colorscheme pencil
 
 "" Neocomplete
 " Disable AutoComplPop.
@@ -391,6 +410,9 @@ set showbreak=>\
 " for backgrounded buffers
 set hidden
 
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
+
 " Auto-reload buffers when file changed on disk
 set autoread
 
@@ -427,7 +449,7 @@ augroup vimrcEx
   autocmd!
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * set listchars=tab:>·,extends:>,precedes:<
-  au InsertLeave * set listchars=trail:~
+  au InsertLeave * set listchars=tab:>·,extends:>,precedes:<,trail:~
   " Some file types use real tabs
   au FileType {make,gitconfig} set noexpandtab
   " Make sure all markdown files have the correct filetype set and setup wrapping
