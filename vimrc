@@ -1,5 +1,6 @@
 set nocompatible               " choose no compatibility with legacy vi
 filetype off                   " required!
+let mapleader=","              " must be set before mappings
 
 " Paths
 set rtp+=~/vimfiles/bundle/Vundle.vim/
@@ -323,7 +324,6 @@ set list
 set tags=tags;/
 set foldlevelstart=20
 
-let mapleader=","
 
 " map default register to system clipboard on windows
 set clipboard=unnamed,unnamedplus
