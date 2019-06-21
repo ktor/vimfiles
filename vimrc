@@ -1,6 +1,6 @@
 set nocompatible               " choose no compatibility with legacy vi
 filetype off                   " required!
-let mapleader=","              " must be set before mappings
+let mapleader="\<Space>"       " must be set before mappings
 
 " Paths
 set rtp+=~/vimfiles/bundle/Vundle.vim/
