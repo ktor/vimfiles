@@ -239,7 +239,13 @@ Plugin 'camelcasemotion'
 Plugin 'terryma/vim-multiple-cursors'
 
 " Grep support (https://github.com/dkprice/vim-easygrep)
-Plugin 'dkprice/vim-easygrep'
+" Plugin 'dkprice/vim-easygrep'
+
+" Ripgrep support
+Plugin 'jesseleite/vim-agriculture'
+nmap <Leader>/ <Plug>RgRawSearch
+vmap <Leader>/ <Plug>RgRawVisualSelection
+nmap <Leader>* <Plug>RgRawWordUnderCursor
 
 " Create parent directories on file write
 Plugin 'DataWraith/auto_mkdir'
