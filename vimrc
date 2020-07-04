@@ -470,6 +470,8 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 nmap <leader>bx :set filetype=xml<CR>:%!xmllint --format -<CR>
 " beautify json
 nmap <leader>bj :set filetype=json<CR>:%!python -m json.tool<CR>
+" beautify css
+nmap <leader>bc :set filetype=css<CR>:%!python -m css.tool<CR>
 " beautify html
 nmap <leader>bh :set filetype=html<CR>:%!tidy -q -i --show-errors 0 --indent yes<CR>
 
