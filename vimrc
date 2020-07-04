@@ -263,7 +263,7 @@ Plugin 'Rename'
 " smap <C-J> <Plug>snipMateNextOrTrigger
 
 " Auto formatting support
-" Usage: ,a
+" Usage: <leader>a
 Plugin 'Chiel92/vim-autoformat'
 " autoformatter as in Intellij IDEA
 map <leader>a :Autoformat<CR>
