@@ -156,18 +156,18 @@ map <leader>t :TagbarToggle<CR>
 Plugin 'LnL7/vim-nix'
 
 " Ledger support
-Plugin 'ledger/vim-ledger'
+" Plugin 'ledger/vim-ledger'
 
 " JavaScript support
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'othree/javascript-libraries-syntax.vim'
 
 " AngularJS support
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'burnettk/vim-angular'
+" Plugin 'matthewsimo/angular-vim-snippets'
+" Plugin 'burnettk/vim-angular'
 
 " Jasmine suppport
-Plugin 'claco/jasmine.vim'
+" Plugin 'claco/jasmine.vim'
 
 " Universal language client support
 Plugin 'autozimu/LanguageClient-neovim'
@@ -184,12 +184,12 @@ nmap <leader>la :call LanguageClient#textDocument_codeAction()<CR>
 nmap <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Typescript
-Plugin 'Quramy/tsuquyomi' " typescript plugin
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+" Plugin 'Quramy/tsuquyomi' " typescript plugin
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 Plugin 'leafgarland/typescript-vim' " typescript syntax highlight
 Plugin 'Quramy/vim-js-pretty-template' " provides syntax highlight for content in Template Strings
-Plugin 'mhartington/vim-typings' " provides .d.ts management for typings users.
+" Plugin 'mhartington/vim-typings' " provides .d.ts management for typings users.
 
 " Elm support
 Plugin 'elmcast/elm-vim' " elm plugin
@@ -249,12 +249,12 @@ Plugin 'DataWraith/auto_mkdir'
 Plugin 'Rename'
 
 " Code snippets support
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
+" imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+" smap <C-J> <Plug>snipMateNextOrTrigger
 
 " Auto formatting support
 " Usage: ,a
