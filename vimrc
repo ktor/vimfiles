@@ -113,19 +113,29 @@ Plugin 'airblade/vim-gitgutter'
 "  Press <c-p> to pop up search window
 "  Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
 "  Press <c-f> and <c-b> to cycle between modes.
-Plugin 'kien/ctrlp.vim.git'
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 40
-if executable('rg')
-  " Use ripgrep
-  set grepprg=rg\ --color\ never\ --no-heading
-  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-  " and .agignore.
-  let g:ctrlp_user_command = ['.git','rg --color never --files %s']
-else
-  "ctrl+p ignore files in .gitignore
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-endif
+" Plugin 'kien/ctrlp.vim.git'
+" let g:ctrlp_max_files = 0
+" let g:ctrlp_max_depth = 40
+" 
+" let g:ctrlp_cmd = 'CtrlPMixed'
+" 
+" if executable('rg')
+"   " Use ripgrep
+"   let g:EasyGrepCommand=1
+"   set grepprg=rg\ --vimgrep\ -i
+"   " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+"   " and .agignore.
+"   let g:ctrlp_user_command = ['.git','rg --color never --files %s']
+" else
+"   "ctrl+p ignore files in .gitignore
+"   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" endif
+
+" Fuzzy file finder
+Plugin 'junegunn/fzf.vim'
+nnoremap <C-p> :Files<Cr>
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
 " BufExplorer Help
 " Usage: <leader>be
