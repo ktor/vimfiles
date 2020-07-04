@@ -347,7 +347,8 @@ set foldlevelstart=20
 
 
 " map default register to system clipboard on windows
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamed
+set clipboard+=unnamedplus
 
 set splitright
 set splitbelow
