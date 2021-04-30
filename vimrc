@@ -63,6 +63,9 @@ nmap <leader><leader>[ <Plug>(snipe-f-xp)
 "                                  Plugins - visual features
 " -----------------------------------------------------------------------------------------
 
+" Stats
+Plugin 'wakatime/vim-wakatime'
+
 " Ctrl c c to copy text from left pane vim to right pane in tmux
 Plugin 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
