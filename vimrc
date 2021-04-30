@@ -484,6 +484,9 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " beautifiers, used mainly for code copy pasted in new buffer
 " beautify xml
 nmap <leader>bx :set filetype=xml<CR>:%!xmllint --format -<CR>
+com! FormatXML :%!python -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+nmap <leader>bm :FormatXML<Cr>
+
 " beautify json
 nmap <leader>bj :set filetype=json<CR>:%!python -m json.tool<CR>
 " beautify css
