@@ -496,14 +496,14 @@ nmap <leader>bh :set filetype=html<CR>:%!tidy -q -i --show-errors 0 --indent yes
 
 " Convert slashes to backslashes for Windows.
 if has('win32')
-  nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
-  nmap <leader>cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+  nmap <leader>cs :let @+=substitute(expand("%"), "/", "\\", "g")<CR>
+  nmap <leader>cl :let @+=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
   " This will copy the path in 8.3 short format, for DOS and Windows 9x
-  nmap <leader>c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
+  nmap <leader>c8 :let @+=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
 else
-  nmap <leader>cs :let @*=expand("%")<CR>
-  nmap <leader>cl :let @*=expand("%:p")<CR>
+  nmap <leader>cs :let @+=resolve(expand("%"))<CR>
+  nmap <leader>cl :let @+=resolve(expand("%:p"))<CR>
 endif
 
 " paste lines from unnamed register and fix indentation
