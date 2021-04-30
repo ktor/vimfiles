@@ -216,6 +216,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 "                                  Plugins - editing
 " -----------------------------------------------------------------------------------------
 
+Plugin 'editorconfig/editorconfig-vim'
+
 " TComment Help
 " Usage: gc in visual mode - toggle comment on selected code block
 Plugin 'tomtom/tcomment_vim.git'
