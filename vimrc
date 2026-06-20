@@ -135,6 +135,7 @@ Plugin 'airblade/vim-gitgutter'
 " endif
 
 " Fuzzy file finder
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<Cr>
 command! -bang -nargs=? -complete=dir Files
@@ -224,6 +225,10 @@ Plugin 'tomtom/tcomment_vim.git'
 
 " automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
+
+" gS to split a one-liner into multiple lines
+" gJ (with the cursor on the first line of a block) to join a block into a single-line statement.
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Quickly create and modify quotes,parentesis etc.
 "
